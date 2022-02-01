@@ -1,0 +1,17 @@
+{
+  "name": "locker",
+  "version": "1.0.0",
+  "description": "locker",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "example": "node ./dist/example.js"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.8",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.9.7"
+  },
+  "author": "Yaroslav Gaponov",
+  "license": "ISC"
+}
