@@ -7,6 +7,7 @@ primitive mutex for complex functions with asynchronous logic inside
 ## Run
 
 ```sh
+npm ci
 npm run build
 npm run example
 ```

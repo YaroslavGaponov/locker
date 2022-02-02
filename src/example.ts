@@ -11,11 +11,14 @@ const locker = new Locker();
 async function runme(i: number) {
     try {
         console.log(`waiting ${i}`);
+
         await locker.lock();
         console.log(`locked ${i}`);
+        
         await timeout(1000);
         console.log(`working ${i}`);
         await timeout(1000);
+    
     } finally {
         console.log(`unlocked ${i}`);
         locker.unlock();
