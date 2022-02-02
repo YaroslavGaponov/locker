@@ -22,6 +22,7 @@ async function runme(i: number) {
     } finally {
         console.log(`unlocked ${i}`);
         locker.unlock();
+        console.log(`done ${i}`);
     }
 }
 

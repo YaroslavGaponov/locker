@@ -26,7 +26,7 @@ export class Locker {
         }
         const next = this.resolves[0];
         if (next) {
-            next.resolve();
+            process.nextTick(() => next.resolve());
         }
     }
 }

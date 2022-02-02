@@ -65,6 +65,7 @@ function runme(i) {
                 case 4:
                     console.log("unlocked " + i);
                     locker.unlock();
+                    console.log("done " + i);
                     return [7 /*endfinally*/];
                 case 5: return [2 /*return*/];
             }

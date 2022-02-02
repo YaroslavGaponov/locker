@@ -31,6 +31,8 @@ async function runme(i: number) {
     } finally {
         console.log(`unlocked ${i}`);
         locker.unlock();
+
+        console.log(`done ${i}`);
     }
 }
 
@@ -48,10 +50,13 @@ waiting 2
 locked 0
 working 0
 unlocked 0
+done 0
 locked 1
 working 1
 unlocked 1
+done 1
 locked 2
 working 2
 unlocked 2
+done 2
 ```

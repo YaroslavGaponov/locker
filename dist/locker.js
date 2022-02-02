@@ -24,7 +24,7 @@ var Locker = /** @class */ (function () {
         }
         var next = this.resolves[0];
         if (next) {
-            next.resolve();
+            process.nextTick(function () { return next.resolve(); });
         }
     };
     return Locker;
