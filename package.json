@@ -1,7 +1,7 @@
 {
   "name": "locker",
   "version": "1.0.0",
-  "description": "locker",
+  "description": "mutex for complex functions with asynchronous logic inside",
   "main": "dist/index.js",
   "scripts": {
     "build": "npx tsc",

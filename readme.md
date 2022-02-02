@@ -1,6 +1,6 @@
 Locker
-=====================
-primitive mutex for complex functions with asynchronous logic inside
+===================
+mutex for complex functions with asynchronous logic inside
 
 # Example
 
