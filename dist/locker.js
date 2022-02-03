@@ -1,33 +1,32 @@
 "use strict";
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Locker = void 0;
-var Locker = /** @class */ (function () {
-    function Locker(timeout) {
-        if (timeout === void 0) { timeout = 30000; }
+const nextTick = (_a = process === null || process === void 0 ? void 0 : process.nextTick) !== null && _a !== void 0 ? _a : setImmediate;
+class Locker {
+    constructor(timeout = 30000) {
         this.timeout = timeout;
         this.resolves = [];
     }
-    Locker.prototype.lock = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            var timerId = setTimeout(function () { return reject(new Error('Timeout')); }, _this.timeout).unref();
-            _this.resolves.push({ resolve: resolve, timerId: timerId });
-            if (_this.resolves.length === 1) {
+    lock() {
+        return new Promise((resolve, reject) => {
+            const timerId = setTimeout(() => reject(new Error('Timeout')), this.timeout).unref();
+            this.resolves.push({ resolve, timerId });
+            if (this.resolves.length === 1) {
                 resolve();
             }
         });
-    };
-    Locker.prototype.unlock = function () {
-        var curr = this.resolves.shift();
+    }
+    unlock() {
+        const curr = this.resolves.shift();
         if (curr) {
             clearTimeout(curr.timerId);
         }
-        var next = this.resolves[0];
+        const next = this.resolves[0];
         if (next) {
-            process.nextTick(function () { return next.resolve(); });
+            nextTick(() => next.resolve());
         }
-    };
-    return Locker;
-}());
+    }
+}
 exports.Locker = Locker;
 //# sourceMappingURL=locker.js.map

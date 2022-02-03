@@ -1,3 +1,6 @@
+
+const nextTick = process?.nextTick ?? setImmediate;
+
 interface ResolveElement {
     resolve: (value?: any) => void;
     timerId: NodeJS.Timeout;
@@ -26,7 +29,7 @@ export class Locker {
         }
         const next = this.resolves[0];
         if (next) {
-            process.nextTick(() => next.resolve());
+            nextTick(() => next.resolve());
         }
     }
 }
